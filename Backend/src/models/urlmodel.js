@@ -5,10 +5,6 @@ const clickSchema = new mongoose.Schema({
 })
 
 const urlSchema = new mongoose.Schema({
-    url_id : {
-        type : Number,
-        required : true
-    },
     longURL : {
         type : String,
         required : [true, "Enter the URL"]
@@ -18,6 +14,10 @@ const urlSchema = new mongoose.Schema({
         required : true
     }
 });
+
+urlSchema.virtual('shortUrl').get(function(){
+    return process.env.PREFIX+shortCode;
+})
 
 const urlModel = mongoose.model('URLs', urlSchema);
 

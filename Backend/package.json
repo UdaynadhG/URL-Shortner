@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "url",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,8 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mongoose": "^9.9.1",
-    "node": "^26.5.1"
+    "nanoid": "^6.0.0",
+    "node": "^26.5.1",
+    "nodemon": "^3.1.14"
   }
 }
