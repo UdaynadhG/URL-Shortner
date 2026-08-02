@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-const clickSchema = new mongoose.Schema({
-
-})
-
 const urlSchema = new mongoose.Schema({
     longURL: {
         type: String,
@@ -16,9 +12,10 @@ const urlSchema = new mongoose.Schema({
 });
 
 urlSchema.virtual('shortUrl').get(function () {
-    return process.env.PREFIX + shortCode;
+    console.log(process.env.PREFIX);
+    return process.env.PREFIX + this.shortCode;
 })
 
 const urlModel = mongoose.model('URLs', urlSchema);
 
-export default urls;
+export default urlModel;
