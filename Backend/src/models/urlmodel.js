@@ -1,14 +1,7 @@
 import mongoose from "mongoose";
 
-const clickSchema = new mongoose.Schema({
-    
-})
-
 const urlSchema = new mongoose.Schema({
-    url_id : {
-        type : Number,
-        required : true
-    },
+    
     longURL : {
         type : String,
         required : [true, "Enter the URL"]
@@ -19,6 +12,6 @@ const urlSchema = new mongoose.Schema({
     }
 });
 
-const urlModel = mongoose.model('URLs', urlSchema);
+const urls = mongoose.model('urls', urlSchema);
 
-export default urlModel;
+export default urls;
