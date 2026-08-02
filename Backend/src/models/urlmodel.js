@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema({
-    
     longURL : {
         type : String,
         required : [true, "Enter the URL"]
@@ -12,6 +11,10 @@ const urlSchema = new mongoose.Schema({
     }
 });
 
-const urls = mongoose.model('urls', urlSchema);
+urlSchema.virtual('shortUrl').get(function(){
+    return process.env.PREFIX+shortCode;
+})
+
+const urlModel = mongoose.model('URLs', urlSchema);
 
 export default urls;
