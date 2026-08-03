@@ -3,16 +3,22 @@ import mongoose from "mongoose";
 const urlSchema = new mongoose.Schema({
     longURL: {
         type: String,
-        required: [true, "Enter the URL"]
+        required: [true, "Enter the URL"],
+        index : true
     },
     shortCode: {
         type: String,
-        required: true
+        required: true,
+        index : true
+    },
+    clickCount : {
+        type : Number,
+        default : 0
     }
 });
 
 urlSchema.virtual('shortUrl').get(function () {
-    console.log(process.env.PREFIX);
+    // console.log(process.env.PREFIX);
     return process.env.PREFIX + this.shortCode;
 })
 
